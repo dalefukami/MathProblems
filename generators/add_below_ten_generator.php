@@ -1,6 +1,10 @@
 <?php
 
-class AddBelowTenGenerator {
+require_once('lib/Generator.php');
+
+class AddBelowTenGenerator extends Generator {
+    var $short_name = 'Addition below 10';
+
     public function newQuestion() {
         $html = array();
         $first = rand(0,9);

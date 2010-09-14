@@ -3,6 +3,7 @@ require_once('lib/Generator.php');
 
 class AddGenerator extends Generator {
     var $numberOfDigits = 1;
+    var $short_name = 'Addition';
 
     public function __construct($numberOfDigits = 1) {
         $this->numberOfDigits = max(1, $numberOfDigits);

@@ -1,6 +1,10 @@
 <?php
 
-class SubtractBelowTenGenerator {
+require_once('lib/Generator.php');
+
+class SubtractBelowTenGenerator  extends Generator {
+    var $short_name = 'Subraction below 10';
+
     public function newQuestion() {
         $html = array();
         $first = rand(0,9);

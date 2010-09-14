@@ -3,6 +3,8 @@
 require_once( 'lib/Generator.php' );
 
 class SubtractDigitsBelowTenGenerator extends Generator {
+    var $short_name = 'Subraction - digits below 10';
+
     public function newQuestion() {
         $html = array();
         $firstPair = $this->getDigitPair();

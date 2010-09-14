@@ -1,6 +1,8 @@
 <?php
 
-class CompoundGenerator {
+require_once('lib/Generator.php');
+
+class CompoundGenerator extends Generator {
     var $generators = array();
 
     public function add($generator) {

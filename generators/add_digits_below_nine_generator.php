@@ -1,6 +1,10 @@
 <?php
 
-class AddDigitsBelowNineGenerator {
+require_once('lib/Generator.php');
+
+class AddDigitsBelowNineGenerator extends Generator {
+    var $short_name = 'Addition - digits total below 9';
+
     public function newQuestion() {
         $html = array();
         $firstPair = $this->getDigitPair();
