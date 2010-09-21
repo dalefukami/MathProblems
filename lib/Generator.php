@@ -13,7 +13,7 @@ class Generator extends HTML {
     }
 
     public function getAdditionalInfoBlock() {
-        return "<div style='border: 1px solid red; height: 50px; width: 75px;'>stuff</div>";
+        return "";
     }
 
     protected function finalRow($operator, $value) {

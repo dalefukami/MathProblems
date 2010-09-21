@@ -32,14 +32,17 @@ foreach( get_declared_classes() as $class ) {
     </style>
 </head>
 <body>
-<?php
-    foreach( $generators as $generator ) {
-        echo "<INPUT TYPE=CHECKBOX NAME='".get_class($generator)."'>{$generator->getShortName()}</INPUT>";
-        echo "<br/>";
-        $info_divs[] = $generator->getAdditionalInfoBlock();
-    }
+    <form action="math.php" method=GET>
+        <?php
+            foreach( $generators as $generator ) {
+                echo "<INPUT TYPE=CHECKBOX NAME='".get_class($generator)."'>{$generator->getShortName()}</INPUT>";
+                echo "<br/>";
+                $info_divs[] = $generator->getAdditionalInfoBlock();
+            }
 
-    echo implode("\n", $info_divs);
-?>
+            echo implode("\n", $info_divs);
+        ?>
+        <input type=submit name=submit value="Create questions">
+    </FORM>
 </body>
 </html>

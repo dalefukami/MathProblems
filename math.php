@@ -21,14 +21,25 @@ $numberOfQuestions = isset($_GET['questions']) ? $_GET['questions'] : 90;
 </head>
 <body>
 <?php
-    $generator = new CompoundGenerator();
-    foreach( $_GET as $generatorName => $params ) {
-        if( $generatorName == 'questions' ) {
-            continue;
+    $generators = array();
+    foreach( $_GET as $parameterName => $value ) {
+        if( $value == 'on' ) {
+            $generators[$parameterName] = array();
         }
+    }
 
-        $className = $generatorName.'Generator';
-        $generator->add(new $className($params));
+    foreach( $_GET as $parameterName => $value ) {
+        if( preg_match('/_param_/', $parameterName) ) {
+            $vals = explode("_param_", $parameterName);
+            if( isset($generators[$vals[0]]) ) {
+                $generators[$vals[0]][$vals[1]] = $value;
+            }
+        }
+    }
+
+    $generator = new CompoundGenerator();
+    foreach( $generators as $generatorName => $params ) {
+        $generator->add(new $generatorName($params));
     }
 
     for( $i = 0; $i < $numberOfQuestions; $i++ ) {

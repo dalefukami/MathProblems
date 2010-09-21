@@ -5,8 +5,22 @@ class AddGenerator extends Generator {
     var $numberOfDigits = 1;
     var $short_name = 'Addition';
 
-    public function __construct($numberOfDigits = 1) {
+    public function __construct($params = array()) {
+        $numberOfDigits = 0;
+        if( !empty($params['number_of_digits']) ) {
+            $numberOfDigits = $params['number_of_digits'];
+        }
         $this->numberOfDigits = max(1, $numberOfDigits);
+    }
+
+    public function getAdditionalInfoBlock() {
+        $inputName = get_class($this)."_param_number_of_digits";
+        return "
+            <div style='border: 1px solid black;'>
+                <div>Addition questions</div>
+                Number of Digits <input name='{$inputName}' value=3></input>
+            </div>
+        ";
     }
 
     public function newQuestion() {
