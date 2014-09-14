@@ -3,7 +3,7 @@
 require_once('lib/Generator.php');
 
 class AddBelowTenGenerator extends Generator {
-    var $short_name = 'Addition below 10';
+    var $short_name = 'Addition below 10 (I.E., no totals above ten but some that equal ten)';
 
     public function newQuestion() {
         $html = array();

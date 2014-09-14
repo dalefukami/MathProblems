@@ -3,7 +3,7 @@
 require_once('lib/Generator.php');
 
 class AddDigitsBelowNineGenerator extends Generator {
-    var $short_name = 'Addition - digits total below 9';
+    var $short_name = 'Addition - digits total below 9 (I.E., no carrying)';
 
     public function newQuestion() {
         $html = array();
